@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento de Registro de Modelos</title>
+    <link rel="stylesheet" href="diseño.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+
+    
+
+    <form action="procesar_registro.php" method="POST" enctype="multipart/form-data" onsubmit="return validarFormulario()">
+        <h1 class="formularioEncabezado" style="text-align: center;">Formulario modelos</h1>
+        <h2>Dinos tu nombre:</h2>
+        <input type="text" name="nombre_completo" required pattern="[A-Za-z]{3,50}" 
+        title="Solo se permiten letras y espacios con un mínimo de 3 caracteres y un máximo de 50." placeholder="Debes indicar nombre y apellido :)">
+
+        <h2>¿Tienes nombre de artista?</h2>
+        <input type="text" name="nombre_artista" placeholder="Naomi Crom">
+
+        <h2>Email:</h2>
+        <input type="email" name="email" required placeholder="ejemplo@ejemplo.com">
+
+        <h2>Fecha de nacimiento:</h2>
+        <input type="text" name="fecha_nacimiento" id="fecha_nacimiento" placeholder="día, luego mes y finalmente el año">
+
+        <h2>Género:</h2>
+        <input type="radio" name="genero" value="masculino" required> Masculino
+        <input type="radio" name="genero" value="femenino" required> Femenino
+        <input type="radio" name="genero" value="prefiero_no_decirlo" required> Prefiero no especificarlo
+        <input type="radio" name="genero" value="otro" required> Otro
+
+        <h2>Teléfono:</h2>
+        <input type="text" name="telefono" required pattern="[0-9]{9}" title="Introduce un número válido de 9 dígitos.">
+
+        <h2>País donde resides:</h2>
+        <select name="paises" required>
+            <option value="vacio">Selecciona un país</option>
+            <option value="España">España</option>
+            <option value="Portugal">Portugal</option>
+            <option value="Francia">Francia</option>
+            <option value="UK">Reino Unido</option>
+            <option value="Estados_Unidos">Estados Unidos</option>
+            <option value="Alemania">Alemania</option>
+            <option value="Italia">Italia</option>
+            <option value="México">México</option>
+            <option value="Argentina">Argentina</option>
+            <option value="Colombia">Colombia</option>
+            <option value="Chile">Chile</option>
+            <option value="Brasil">Brasil</option>
+            <option value="Australia">Australia</option>
+            <option value="Japón">Japón</option>
+            <option value="Canadá">Canadá</option>
+        </select>
+        
+
+        <h2>¿Dónde te gustaría enfocarte?</h2>
+        <input type="checkbox" name="habilidades[]" value="publicidad"> Publicidad
+        <input type="checkbox" name="habilidades[]" value="cine"> Cine
+        <input type="checkbox" name="habilidades[]" value="modelaje"> Modelaje
+        <input type="checkbox" name="habilidades[]" value="moda"> Moda
+        <input type="checkbox" name="habilidades[]" value="todos" onclick="seleccionarTodas()"> Todos
+
+        <h2>Descríbete</h2>
+        <div class="textarea-container">
+          <textarea name="descripcion" id="descripcion" maxlength="1000"></textarea>
+          <div id="contador">0/1000</div>
+        </div>
+
+        <h2> Puedes dejarnos una foto de perfil (o de frente ;) </h2>
+        <input type="file" name="foto_perfil" accept="image/jpeg,image/png" id="foto_perfil">
+        <div id="previewContainer">
+            <img id="previewImage" src="" alt="Vista previa de la imagen" style="display:none; max-width: 100px; max-height: 100px;">
+            <p id="error-message" style="color: red; display: none;">El archivo supera los 300KB o no es una imagen válida.</p>
+        </div>
+        
+
+        <h2>Términos y condiciones</h2>
+        <input type="checkbox" name="terminos" required> Acepto los términos y condiciones
+
+        <section id="sectionEdad18" style="display: none;">
+            <h2 id="menor18">Soy menor de 18 años</h2>
+            <input type="checkbox" name="menor_edad" onclick="habilitarAutorizacion()"> Soy menor de 18 años
+            <input type="file" name="autorizacion_pdf" accept="application/pdf" style="display: none;" id="autorizacion_pdf">
+        </section>
+
+        <button type="submit">¡Regístrate!</button>
+        <button type="reset">Limpiar los datos</button>
+    </form>
+    
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="scripts.js"></script>
+
+</body>
+</html>

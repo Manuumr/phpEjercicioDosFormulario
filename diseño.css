@@ -1,0 +1,149 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    background-color: rgb(0, 0, 0);  /* Fondo de color sólido como respaldo */
+    background-image: radial-gradient(circle at 40% 20%, hsla(28, 100%, 74%, 1) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 0%, rgb(0, 0, 0) 0%, transparent 50%),
+                      radial-gradient(circle at 0% 50%, hsla(355, 100%, 93%, 1) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 50%, rgb(0, 0, 0) 0%, transparent 50%),
+                      radial-gradient(circle at 0% 100%, hsla(22, 100%, 77%, 1) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 100%, hsla(242, 100%, 70%, 1) 0%, transparent 50%),
+                      radial-gradient(circle at 0% 0%, rgb(133, 0, 38) 0%, transparent 50%);
+    background-blend-mode: normal, normal, normal, normal, normal, normal, normal;  /* Mantiene la mezcla de gradientes */
+    background-size: cover;  /* Asegura que el fondo cubra toda la pantalla */
+    background-position: center;  /* Centra el fondo */
+    background-attachment: fixed;  /* Fija el fondo cuando se haga scroll */
+    background-repeat: no-repeat;  /* Evita la repetición del fondo */
+    margin: 0;  /* Elimina los márgenes por defecto */
+    height: 100vh;  /* Asegura que ocupe toda la altura de la ventana */
+    transition: 2s;  /* Transición que ya tenías */
+}
+
+
+
+
+.titulo-formulario {
+    font-size: 24px;
+    color: #333;
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+    text-align: center;
+}
+
+form {
+  
+    transition: 2s;
+    width: 100%;
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+    padding: 30px;
+    margin: 40px auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 40px;
+    backdrop-filter: blur(10px); /* Efecto de desenfoque en el fondo */
+    -webkit-backdrop-filter: blur(50px); /* Para compatibilidad con Safari */
+}
+
+
+
+
+/* Aplica solo a inputs que no sean radio ni checkbox */
+input:not([type="radio"]):not([type="checkbox"]) {
+    width: 100%;
+    margin: 8px -10px;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Opcional: Añadir margen entre el botón y el texto */
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 8px; /* Espacio entre el botón y el texto */
+    width: auto; /* Mantiene el tamaño predeterminado */
+}
+
+
+select {
+    width: 100%;
+    margin: 8px 0;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+textarea {
+    width: 100%;
+    margin: 8px -20px;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+  width: 90%; /* Usa un ancho fijo */
+  margin: 8px auto; /* Centra el botón en su contenedor */
+  padding: 8px;
+  font-size: 16px;
+  border: none; /* Elimina el borde */
+  border-radius: 30px;
+  color: white;
+  display: block;
+  transition: width 5s ease, background-color 3s ease, background-color 1s, box-shadow 1s  ; /* Aplica la transición en ambos estados */
+
+}
+
+button:hover {
+  transition: 2s;
+  width: 75%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 0 30px rgba(0, 96, 255, 0.7);
+  background-color: #0071e3;}
+
+
+.textarea-container {
+    position: relative;
+  }
+  
+  #descripcion {
+    width: 100%;
+    height: 100px;
+    padding-bottom: 20px;  
+  }
+  
+  #contador {
+    position: absolute;
+    bottom: -10px;
+    right: 10px;
+    font-size: 14px;
+    color: #000;
+    pointer-events: none;  
+    transition: color 0.3s, transform 0.3s;
+  }
+  
+  .temblor {
+    animation: temblar 0.2s ease-in-out infinite;
+  }
+  
+  @keyframes temblar {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+  }
+
+  #previewImage {
+    display: none;
+    max-width: 300px;  /* Ajusta el tamaño máximo según tu preferencia */
+    max-height: 300px; /* Ajusta la altura máxima */
+}
+
+  
+  
